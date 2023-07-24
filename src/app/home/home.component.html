@@ -1,0 +1,34 @@
+<div>
+    <app-header></app-header>
+    <div class="alignList">
+        <div *ngFor="let list of arrayGame">
+            <button type="button" (click)="selectDate(list)"
+                [ngClass]="{'reddiv': checkSelectedDateColor((list|date:'EE d MMMM'))}"
+                class="margin btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark">
+                {{list|date:'EE d MMMM'}}
+            </button>
+        </div>
+    </div>
+
+    <div class="FootballName">
+        <img src="assets/football-soccer-ball-4796264.webp">
+        <span class="Namefootball">Football</span>
+    </div>
+
+    <div class="content">
+        <div *ngFor="let group of groupedDateCountry | keyvalue">
+
+            <div *ngIf="group | filterpipe:currentDate">
+                <div class="reddiv"> {{group.key.split('-')[0]}}</div>
+                <div *ngFor="let FootballGameList of group.value;">
+                    <div class="setheigth" [routerLink]="['/hostGame']" [state]="FootballGameList"
+                        routerLinkActive="router-link-active">
+                        {{FootballGameList.Team1Name}} <span
+                            class="datecolor">{{FootballGameList.KickOffUtc|date:"HH:mm"}}</span>
+                        {{FootballGameList.Team2Name}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+.alignList {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    overflow: auto;
+}
+
+.margin {
+    margin: 10px;
+    width: 110px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #e2e2e2;
+    color: black;
+    border-color: #e2e2e2;
+    text-align: center;
+
+}
+
+.reddiv {
+    background-color: #ed3535;
+}
+
+.content {
+    text-align: center;
+    margin: 1%;
+    border: 1px solid black;
+    padding: 3% 0%;
+    border-radius: 20px;
+    border-color: gray;
+}
+
+.FootballName {
+    margin-left: 4%;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+.Namefootball {
+    height: 20px;
+    width: 30px;
+}
+
+.setheigth {
+    height: 50px;
+    border-bottom: 1px solid #b4b3b3;
+    line-height: 50px;
+    margin: 0px 10px;
+}
+
+.datecolor {
+    color: #a09a9a;
+}

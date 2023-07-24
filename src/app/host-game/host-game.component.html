@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="body">
+    <i class=" red fa fa-arrow-circle-left" aria-hidden="true" [routerLink]="['/home']"
+        routerLinkActive="router-link-active"></i>
+
+    <div class="color redBackgound">Make It A Bet Builder</div>
+
+    <div class="adjustRow redBackgound">
+        <div class="dateMatch">
+            <div>{{routeState?.MatchDate | date:'MMMM d, y hh:mm'}}</div>
+        </div>
+        <div class="trape">
+            <div>{{routeState?.Team1Name}} VS {{routeState?.Team2Name}}</div>
+            <div>{{routeState?.Country}} {{routeState?.LeagueName}}</div>
+        </div>
+    </div>
+
+    <div class="selectionLeg">
+        <div class="Selection">
+            <label class="fw-bold Legs">Selection:</label>
+            <select class="select drop-doun" (ngModelChange)="onDropdownChangeMarket($event)"
+                [(ngModel)]="selectedMarket">
+                <option *ngFor="let market of marketApiData" [ngValue]="market.MarketId">{{market.MarketName}}</option>
+            </select>
+        </div>
+        <div class="Legs">
+            <label class="fw-bold Legs">Legs:</label>
+            <select class="select drop-doun" (ngModelChange)="onDropdownChangeLeg($event)" [(ngModel)]="selectionLeg">
+                <option *ngFor="let leg of selectionApiData" [ngValue]="leg.selectionId">{{leg.selectionValue}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="fontweight">Bet Builder Odds: <span class="red"> {{TotalOdds}} </span>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="red" scope="col">Key Stats</th>
+                <th class="red" scope="col">Market</th>
+                <th class="red" scope="col">Outcome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let BetBuilderBetsApiDataShow of BetBuilderBetsApiData">
+                <th>{{BetBuilderBetsApiDataShow.RTB}}</th>
+                <td>{{BetBuilderBetsApiDataShow.Market}}</td>
+                <td>{{BetBuilderBetsApiDataShow.Selection}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
