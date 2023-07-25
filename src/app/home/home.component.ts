@@ -26,7 +26,7 @@ export class HomeComponent {
     this.Todaydate = new Date();
     this.currentDate = this.datepipe.transform(this.Todaydate, 'M/d/yyyy');
     this.selectedDate = this.datepipe.transform(this.Todaydate, 'EE d MMMM');
-    console.log(this.selectedDate);
+
     this.getAllProduct();
   }
 
