@@ -26,6 +26,7 @@ export class HomeComponent {
     this.Todaydate = new Date();
     this.currentDate = this.datepipe.transform(this.Todaydate, 'M/d/yyyy');
     this.selectedDate = this.datepipe.transform(this.Todaydate, 'EE d MMMM');
+    console.log(this.selectedDate);
     this.getAllProduct();
   }
 
@@ -34,7 +35,7 @@ export class HomeComponent {
       (data: any) => {
         this.GameList = data;
         this.GameList = this.GameList.sort((a: any, b: any) => {
-          return <any>new Date(a.KickOffUtc) - <any>new Date(b.KickOffUtc);
+          return (a.KickOffUtc) - (b.KickOffUtc);
         });
         this.groupedDateCountry = this.GameList.reduce((group: any, current: any) => {
           const groupingKeyDateCountry = `${current.Country} ${current.LeagueName} - ${current.MatchDate}`;
