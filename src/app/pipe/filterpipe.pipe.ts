@@ -9,5 +9,4 @@ export class FilterpipePipe implements PipeTransform {
     let bool = moment(gameData.value[0].MatchDate).isSame(currentDate);
     return bool;
   }
-
 }
